@@ -29,10 +29,15 @@ export function aufgabe01(args) {
     // damit wir nicht so viele Klammern schreiben müssen.
     const currentElement = input[i]
 
+    if (currentElement === "e") {
+      // do nothing
+    } else if (currentElement === "E") {
+      // auch E ignorieren
+    } else {
+      result.push(currentElement)
+    }
     // Hier wird das aktuelle Zeichen ans Ende der Resultat-Liste angehängt.
-    result.push(currentElement)
   }
-
   // Hier geben wir das Resultat zurück, und machen einen Text daraus.
   return result.join("")
 }
