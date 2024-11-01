@@ -30,8 +30,9 @@ export function aufgabe01(args) {
     const currentElement = input[i]
 
     if (currentElement === "e") {
-      // do nothing
-    } else if (currentElement === "E") {
+    }
+    // do nothing
+    else if (currentElement === "E") {
       // auch E ignorieren
     } else {
       result.push(currentElement)
@@ -62,6 +63,17 @@ export function aufgabe03(args) {
   const input = args
   const result = []
 
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      count = count + 1
+    } else if (currentElement === "E") {
+      count = count++
+    } else {
+      result.push(currentElement)
+    }
+  }
   let count = 0
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
@@ -76,47 +88,69 @@ export function aufgabe03(args) {
   }
   return count
 }
-
-linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
-
-export function aufgabe03(args) {
+linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
+export function aufgabe04(args) {
   const input = args
   const result = []
-
-  let count = 0
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-
     if (currentElement === " ") {
       count = count + 1
     } else if (currentElement === " ") {
-      count++
+      count = count++
     } else {
       result.push(currentElement)
     }
   }
-  return count
 }
-
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
-linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
-
-export function aufgabe08(args) {
+export function aufgabe05(args) {
   const input = args
-  const result = []
-
-  let count = 0
-  for (let i = 0; i < input.length; i++) {
+  let hasUpperCaseLetter = false
+  for (let i = 0; 1 < input.lenght; i++) {
     const currentElement = input[i]
+    const UpperCaseVersion = currentElement.toUpperCase()
 
-    if (currentElement === "e") {
-    } else if (currentElement === "E") {
-    } else {
-      result.push(currentElement)
+    if (currentElement === ".") {
+      // do nothing
+    } else if (currentElement === upperCaseVersion) {
+      hasUpperCaseLetter = true
     }
   }
-  return count
+  return hasUpperCaseLetter
 }
+linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 
-linkupExerciseHandler("[data-click=aufgabe08]", aufgabe0)
+export function aufgabe06(args) {
+  const input = args
+  let noSpecialCharacter = true
+  for (let i = 0; 1 < input.lenght; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === " ") {
+      // do nothing
+    } else if (currentElement === SpecialCharacter) {
+      hasSpecialCharacter = false
+    }
+  }
+  return hasSpecialCharacter
+}
+linkupExerciseHandler("[data-click=aufgabe05]", aufgabe06)
+
+export function aufgabe05(args) {
+  const input = args
+  let hasUpperCaseLetter = false
+  for (let i = 0; 1 < input.lenght; i++) {
+    const currentElement = input[i]
+    const UpperCaseVersion = currentElement.toUpperCase()
+
+    if (currentElement === ".") {
+      // do nothing
+    } else if (currentElement === upperCaseVersion) {
+      hasUpperCaseLetter = true
+    }
+  }
+  return hasUpperCaseLetter
+}
+linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
