@@ -136,21 +136,13 @@ export function aufgabe06(args) {
   }
   return hasSpecialCharacter
 }
-linkupExerciseHandler("[data-click=aufgabe05]", aufgabe06)
+linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 
-export function aufgabe05(args) {
+export function aufgabe11(args) {
   const input = args
-  let hasUpperCaseLetter = false
-  for (let i = 0; 1 < input.lenght; i++) {
-    const currentElement = input[i]
-    const UpperCaseVersion = currentElement.toUpperCase()
-
-    if (currentElement === ".") {
-      // do nothing
-    } else if (currentElement === upperCaseVersion) {
-      hasUpperCaseLetter = true
-    }
-  }
-  return hasUpperCaseLetter
+  // erstelle eine Variable, um den ASCII zu speichern
+  let asciicode = null
+  asciicode = input.charCodeArt(0)
+  // gib den ASCII zurück
 }
-linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
+linkupExerciseHandler("[data-click=aufgabe11]"), aufgabe11
