@@ -61,77 +61,66 @@ linkupExerciseHandler("[data-click=aufgabe02]", aufgabe02)
 
 export function aufgabe03(args) {
   const input = args
-  const result = []
-
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-
-    if (currentElement === "e") {
-      count = count + 1
-    } else if (currentElement === "E") {
-      count = count++
-    } else {
-      result.push(currentElement)
-    }
-  }
   let count = 0
+
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
     if (currentElement === "e") {
       count = count + 1
     } else if (currentElement === "E") {
-      count++
+      count = count + 1
     } else {
-      result.push(currentElement)
+      // do nothing
     }
   }
   return count
 }
 linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
+
 export function aufgabe04(args) {
   const input = args
-  const result = []
+  let count = 0
+
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+
     if (currentElement === " ") {
       count = count + 1
-    } else if (currentElement === " ") {
-      count = count++
     } else {
-      result.push(currentElement)
+      // do nothing
     }
   }
+  return count
 }
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 export function aufgabe05(args) {
   const input = args
-  let hasUpperCaseLetter = false
-  for (let i = 0; 1 < input.lenght; i++) {
+  for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    const UpperCaseVersion = currentElement.toUpperCase()
 
-    if (currentElement === ".") {
-      // do nothing
-    } else if (currentElement === upperCaseVersion) {
-      hasUpperCaseLetter = true
+    if (currentElement === "." || currentElement === " ") {
+      continue // do nothing
+    }
+    if (currentElement === currentElement.toUpperCase()) {
+      return true
     }
   }
-  return hasUpperCaseLetter
+  return false
 }
 linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 
 export function aufgabe06(args) {
   const input = args
-  let noSpecialCharacter = true
-  for (let i = 0; 1 < input.lenght; i++) {
+  let hasSpecialCharacter = false
+  for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
     if (currentElement === " ") {
       // do nothing
     } else if (currentElement === SpecialCharacter) {
-      hasSpecialCharacter = false
+      hasSpecialCharacter = true
     }
   }
   return hasSpecialCharacter
@@ -140,9 +129,13 @@ linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 
 export function aufgabe11(args) {
   const input = args
+  if (input.length === 0) {
+    return null
+  }
   // erstelle eine Variable, um den ASCII zu speichern
-  let asciicode = null
-  asciicode = input.charCodeArt(0)
+
+  const asciicode = input.charCodeAt(0)
   // gib den ASCII zurück
+  return asciicode
 }
 linkupExerciseHandler("[data-click=aufgabe11]"), aufgabe11
