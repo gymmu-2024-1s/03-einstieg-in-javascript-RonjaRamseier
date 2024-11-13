@@ -78,6 +78,7 @@ export function aufgabe03(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 
+// Aufgabe 4:
 export function aufgabe04(args) {
   const input = args
   let count = 0
@@ -95,6 +96,7 @@ export function aufgabe04(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
+// Aufgabe 5: Großbuchstaben
 export function aufgabe05(args) {
   const input = args
   for (let i = 0; i < input.length; i++) {
@@ -111,18 +113,28 @@ export function aufgabe05(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 
+//Aufgabe 6: Sonderzeichen
 export function aufgabe06(args) {
+  const SpecialCharacter = "Not a letter or digit or space"
+  const notSpecialCharacter = "Letter or digit or space" = /[a-zA-Z0-9 ]/
+  // 'const' um etwas zu definieren
+  // '[a-zA-Z0-9 ]' -> a-z und A-Z, 0-9, Leerzeichen
+  // '!' -> Nicht
+  // /^ -> Anfang
+  // $/ -> Ende
+  // teilweise currentElement.match anstatt nur currentElement
+  // 'test' hinzufügen, oder 'test (input)' -> Keine Ahnung, weshalb, ist halt so.
   const input = args
   let hasSpecialCharacter = false
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-
-    if (currentElement === " ") {
-      // do nothing
-    } else if (currentElement === SpecialCharacter) {
+if (currentElement === (![a-zA-Z0-9 ]))
+  notSpecialCharacter = false
+    }
+   if (currentElement === SpecialCharacter) {
       hasSpecialCharacter = true
     }
-  }
+
   return hasSpecialCharacter
 }
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
@@ -139,3 +151,18 @@ export function aufgabe11(args) {
   return asciicode
 }
 linkupExerciseHandler("[data-click=aufgabe11]"), aufgabe11
+
+export function aufgabe27(args) {
+ const input = args
+ const Digit = /^[0-9]$/
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement.match === (/^[0 - 9]$/)) {
+      Digit = true
+    } else { ( currentElement.match === ! (/^[0-9]$/))
+      notDigit = false
+    }
+  }
+    return Digit.test
+}
+linkupExerciseHandler("[data-click=aufgabe27]"), aufgabe27
