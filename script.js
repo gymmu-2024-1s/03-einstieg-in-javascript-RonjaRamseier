@@ -78,7 +78,7 @@ export function aufgabe03(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 
-// Aufgabe 4:
+// Aufgabe 4: Wörter zählen
 export function aufgabe04(args) {
   const input = args
   let count = 0
@@ -116,7 +116,7 @@ linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 //Aufgabe 6: Sonderzeichen
 export function aufgabe06(args) {
   const SpecialCharacter = "Not a letter or digit or space"
-  const notSpecialCharacter = "Letter or digit or space" = /[a-zA-Z0-9 ]/
+  const notSpecialCharacter = /[a-zA-Z0-9 ]/
   // 'const' um etwas zu definieren
   // '[a-zA-Z0-9 ]' -> a-z und A-Z, 0-9, Leerzeichen
   // '!' -> Nicht
@@ -124,20 +124,62 @@ export function aufgabe06(args) {
   // $/ -> Ende
   // teilweise currentElement.match anstatt nur currentElement
   // 'test' hinzufügen, oder 'test (input)' -> Keine Ahnung, weshalb, ist halt so.
+  // 'test' nach '! /[]/'
+  // ';' nach 'true' und 'return'
   const input = args
   let hasSpecialCharacter = false
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-if (currentElement === (![a-zA-Z0-9 ]))
-  notSpecialCharacter = false
-    }
-   if (currentElement === SpecialCharacter) {
+    if (currentElement === !/[a-zA-Z0-9]/.test) {
       hasSpecialCharacter = true
     }
-
+  }
   return hasSpecialCharacter
 }
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
+
+// Aufgabe 7: 'und' zählen
+export function aufgabe07(args) {
+  const input = args
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "und") {
+      count = count + 1
+    } else if (currentElement === "UND") {
+      count = count + 1
+    } else if (currentElement === "Und") {
+      count = count + 1
+    } else {
+      // do nothing
+    }
+  }
+  return count
+}
+linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
+
+// Aufgabe 8: E durch 3 ersetzen
+export function aufgabe08(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e" || currentElement === "E") {
+      result.push("3")
+      // result.push ("")um etwas zu ersetzen
+    }
+    // durch 3 ersetzen
+    else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
 
 export function aufgabe11(args) {
   const input = args
@@ -152,17 +194,16 @@ export function aufgabe11(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe11]"), aufgabe11
 
-export function aufgabe27(args) {
- const input = args
- const Digit = /^[0-9]$/
+export function aufgabe19(args) {
+  const input = args
+  const result = [] // das ist die Resultatliste
+  // läuft Zeichen für Zeichen über den ganzen Text
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if (currentElement.match === (/^[0 - 9]$/)) {
-      Digit = true
-    } else { ( currentElement.match === ! (/^[0-9]$/))
-      notDigit = false
-    }
+    // hänge das aktuelle Zeichen doppelt an.
+    result.push(currentElement)
+    result.push(currentElement)
   }
-    return Digit.test
+  return result.join("")
 }
-linkupExerciseHandler("[data-click=aufgabe27]"), aufgabe27
+linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
