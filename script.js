@@ -45,15 +45,21 @@ export function aufgabe01(args) {
 
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
 
+// Kleinbuchstaben in Grossbuchstaben umwandeln
 export function aufgabe02(args) {
   const input = args
   const result = [] // das ist die Resultatliste
   // läuft Zeichen für Zeichen über den ganzen Text
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // hänge das aktuelle Zeichen doppelt an.
-    result.push(currentElement)
-    result.push(currentElement)
+    // .test (currentElement) um zu testen, ob das currentElement dem gesuchten Element entspricht
+    if (/[a-z]/.test(currentElement)) {
+      result.push(currentElement.toUpperCase())
+    } else {
+      result.push(currentElement)
+      // result.push (currentElement), um nichts zu machen
+    }
+    // result.push zum ersetzen
   }
   return result.join("")
 }
@@ -142,23 +148,37 @@ linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 export function aufgabe07(args) {
   const input = args
   let count = 0
-
+  // const kann anstatt let verwendet werden
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
+    // input [i] = currentElement
 
-    if (currentElement === "und") {
-      count = count + 1
-    } else if (currentElement === "UND") {
-      count = count + 1
-    } else if (currentElement === "Und") {
-      count = count + 1
-    } else {
-      // do nothing
+    if (input[i].toLowerCase() === "und") {
+      count += 1
+      // += anstatt nur =, und dann kein count + danach, sondern nur 1 oder die sonst gewünschte Zahl
     }
   }
   return count
 }
 linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
+
+export function aufgabe071(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (
+      currentElement === "und" ||
+      currentElement === "UND" ||
+      currentElement === "Und"
+    ) {
+      currentElement = true
+    } else {
+      currentElement = false
+    }
+  }
+  return currentElement
+}
+linkupExerciseHandler("[data-click=aufgabe071]", aufgabe071)
 
 // Aufgabe 8: E durch 3 ersetzen
 export function aufgabe08(args) {
@@ -194,6 +214,48 @@ export function aufgabe11(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe11]"), aufgabe11
 
+// Aufgabe 12: Position des ersten 'e'
+export function aufgabe12(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // man könnte für die Aufgabe return args.indexOf("e") verwenden
+    if (currentElement === "e" || currentElement === "E") {
+      // erstes e finden
+      return i
+      // return i um die Funktion zu beenden, weil sie dann ihre Aufgabe erfüllt hat
+    }
+  }
+  return -1
+  // -1, falls das gesuchte Element nicht gefunden wurde
+}
+linkupExerciseHandler("[data-click=aufgabe12]"), aufgabe12
+
+// Aufgabe 13: Position des zweiten "e"
+export function aufgabe13(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "e" || currentElement === "E") {
+      return i
+    }
+  }
+  return -1
+}
+
+// Aufgabe 14: Position des letzten "e"
+export function aufgabe14(args) {
+  const input = args
+  for (let i = input.length - 1; i >= 0; i--) {
+    const currentElement = input[i]
+    if (currentElement === "e" || currentElement === "E") {
+      return i
+    }
+  }
+  return -1
+}
+
+// Aufgabe 19: Zeichen verdoppeln
 export function aufgabe19(args) {
   const input = args
   const result = [] // das ist die Resultatliste
@@ -207,3 +269,33 @@ export function aufgabe19(args) {
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
+
+// Aufgabe 20: überprüfen, ob nach jedem Punkt ein Leerzeichen kommt
+
+export function aufgabe20(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === ".") {
+      if (input[i + 1] !== " ") {
+        // !== " " testet, ob das nächste Zeichen das gesuchte ist oder nicht
+        return false
+        // false, wenn es kein Leerzeichen nach dem Punkt hat
+      }
+    }
+  }
+  return true
+}
+linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
+
+// Aufgabe 21: Text umkehren
+export function aufgabe21(args) {
+  const input = args
+  const result = []
+  for (let i = input.length - 1; i >= 0; i--) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+  return result.join("") // macht es
+}
+inkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
