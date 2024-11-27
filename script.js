@@ -201,6 +201,20 @@ export function aufgabe08(args) {
 
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
 
+// Aufgabe 9: überprüfen, ob eine Eingabe 6 Zeichen lang ist
+export function aufgabe09(args) {
+  const input = args
+  return input.length === 6
+  // input length === um zu bestimmen, wie viele Zeichen die Eingabe haben soll
+  if (input.length === 6) {
+    return true
+  } else if (input.length !== 6) {
+    return false
+  }
+  // !== um zu überprüfen, ob etwas nicht der Fall ist
+}
+linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
+
 export function aufgabe11(args) {
   const input = args
   if (input.length === 0) {
@@ -215,45 +229,74 @@ export function aufgabe11(args) {
 linkupExerciseHandler("[data-click=aufgabe11]"), aufgabe11
 
 // Aufgabe 12: Position des ersten 'e'
-export function aufgabe12(args) {
-  const input = args
+export function aufgabe12(input) {
+  // input statt args
+  // kein const input args, weil die Funktion die Eingabe nicht verändert, sondern nur die Position des ersten e sucht
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    // man könnte für die Aufgabe return args.indexOf("e") verwenden
-    if (currentElement === "e" || currentElement === "E") {
+    if (input[i] === "e" || input[i] === "E") {
+      return i + 1
       // erstes e finden
-      return i
-      // return i um die Funktion zu beenden, weil sie dann ihre Aufgabe erfüllt hat
     }
   }
-  return -1
-  // -1, falls das gesuchte Element nicht gefunden wurde
+  return 0
 }
 linkupExerciseHandler("[data-click=aufgabe12]"), aufgabe12
 
 // Aufgabe 13: Position des zweiten "e"
-export function aufgabe13(args) {
-  const input = args
+export function aufgabe13(input) {
+  let count = 0
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if (currentElement === "e" || currentElement === "E") {
-      return i
+      count++
+      if (count === 2) {
+        return i
+      }
     }
   }
   return -1
 }
+linkupExerciseHandler("[data-click=aufgabe13]"), aufgabe13
 
 // Aufgabe 14: Position des letzten "e"
 export function aufgabe14(args) {
-  const input = args
   for (let i = input.length - 1; i >= 0; i--) {
     const currentElement = input[i]
-    if (currentElement === "e" || currentElement === "E") {
+    if (currentElement === "e") {
       return i
     }
   }
   return -1
 }
+linkupExerciseHandler("[data-click=aufgabe14]"), aufgabe14
+// Aufgabe 15: Eingabe nur bis zum ersten Leerzeichen einlesen
+export function aufgabe15(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === " ") {
+      return input.substring(0, i)
+      // substring (0, i) holt einen Teil der Eingabe heraus
+      // 0 für den Anfang der Eingabe
+      // i für den momentanen Punkt, in dieser Aufgabe das Leerzeichen
+    }
+  }
+  return input
+}
+linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
+
+// Aufgabe 16 Eingabe bis zum ersten $ in den ersten Teil einer Liste, Eingabe ab $ in den zweiten Teil der Liste
+export function aufgabe16(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "$") {
+      return [input.substring(0, i), input.substring(i + 1)]
+      // return input.substring (0, i) + input.substring (i + 1) teilt die Eingabe in zwei Teile ein
+    }
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 // Aufgabe 19: Zeichen verdoppeln
 export function aufgabe19(args) {
@@ -299,3 +342,20 @@ export function aufgabe21(args) {
   return result.join("") // macht es
 }
 inkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
+
+// Aufgabe 22: alle Zeichen bis zu k mit _ erstzen
+export function aufgabe22(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "k") {
+      result.push("_")
+      // result.push (""), um etwas zu ersetzen
+    } else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
