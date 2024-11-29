@@ -238,7 +238,7 @@ export function aufgabe12(input) {
       // erstes e finden
     }
   }
-  return 0
+  return -1
 }
 linkupExerciseHandler("[data-click=aufgabe12]"), aufgabe12
 
@@ -261,7 +261,7 @@ linkupExerciseHandler("[data-click=aufgabe13]"), aufgabe13
 // Aufgabe 14: Position des letzten "e"
 export function aufgabe14(args) {
   for (let i = input.length - 1; i >= 0; i--) {
-    const currentElement = input[i]
+    const currentElement = args[i]
     if (currentElement === "e") {
       return i
     }
@@ -361,15 +361,16 @@ export function aufgabe22(args) {
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
 
 // Aufgabe 27:Testen, ob die Eingabe eine Zahl ist
+
 export function aufgabe27(args) {
   const input = args
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if (currentElement < "0" || currentElement > "9") {
-      // <" "|| currentElement > " " gibt an, welche Elemente hier gefragt sind
+    if (currentElement < 48 || currentElement > 57) {
       return false
     }
   }
   return true
 }
+
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
