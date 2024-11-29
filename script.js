@@ -359,3 +359,17 @@ export function aufgabe22(args) {
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
+
+// Aufgabe 27:Testen, ob die Eingabe eine Zahl ist
+export function aufgabe27(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement < "0" || currentElement > "9") {
+      // <" "|| currentElement > " " gibt an, welche Elemente hier gefragt sind
+      return false
+    }
+  }
+  return true
+}
+linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
