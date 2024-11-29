@@ -333,13 +333,10 @@ linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
 
 // Aufgabe 21: Text umkehren
 export function aufgabe21(args) {
-  const input = args
-  const result = []
-  for (let i = input.length - 1; i >= 0; i--) {
-    const currentElement = input[i]
-    result.push(currentElement)
-  }
-  return result.join("") // macht es
+  return args.split("").reverse().join("")
+  // args.split ("") trennt die Zeichen auf
+  // reverse () kehrt die Reihenfolge um
+  // join ("") kombiniert die Zeichen wieder
 }
 inkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
 
@@ -347,18 +344,43 @@ inkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
 export function aufgabe22(args) {
   const input = args
   const result = []
+  let foundK = false
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if (currentElement === "k") {
-      result.push("_")
-      // result.push (""), um etwas zu ersetzen
-    } else {
+      foundK = true
+      // found"" um zu zeigen, dass das Zeichen gefunden wurde
+    }
+    if (foundK) {
       result.push(currentElement)
+    } else {
+      result.push("_")
     }
   }
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
+
+// Aufgabe 24: Ersten und letzten Buchstaben vertauschen
+export function aufgabe24(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (i === 0) {
+      result.push(input[input.length - 1])
+      // Das erste Zeichen wird dem letzten Zeichen zugewiesen
+    } else if (i === input.length - 1) {
+      result.push(input[0])
+      // Das letzte Zeichen wird dem ersten Zeichen zugewiesen
+    } else {
+      result.push(currentElement)
+      // Alle anderen Zeichen sollen gleich bleiben
+    }
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 
 // Aufgabe 27:Testen, ob die Eingabe eine Zahl ist
 
@@ -367,6 +389,7 @@ export function aufgabe27(args) {
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if (currentElement < 48 || currentElement > 57) {
+      // ASCII verwenden wegen <>
       return false
     }
   }
