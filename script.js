@@ -48,8 +48,8 @@ linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
 // Kleinbuchstaben in Grossbuchstaben umwandeln
 export function aufgabe02(args) {
   const input = args
-  const result = [] // das ist die Resultatliste
-  // läuft Zeichen für Zeichen über den ganzen Text
+  const result = [] // Resultatliste
+  // läuft über den ganzen Text
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     // .test (currentElement) um zu testen, ob das currentElement dem gesuchten Element entspricht
@@ -101,6 +101,13 @@ export function aufgabe04(args) {
   return count
 }
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
+// Aufgabe 4: Wörter zahlen
+export function aufgabe04(args) {
+  const input = args
+  let count = 0
+}
+
+linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 // Aufgabe 5: Großbuchstaben
 export function aufgabe05(args) {
@@ -144,41 +151,23 @@ export function aufgabe06(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 
-// Aufgabe 7: 'und' zählen
+// Aufgabe 7: 'und' finden
 export function aufgabe07(args) {
-  const input = args
-  let count = 0
-  // const kann anstatt let verwendet werden
-  for (let i = 0; i < input.length; i++) {
-    // input [i] = currentElement
-
-    if (input[i].toLowerCase() === "und") {
-      count += 1
-      // += anstatt nur =, und dann kein count + danach, sondern nur 1 oder die sonst gewünschte Zahl
-    }
-  }
-  return count
-}
-linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
-
-export function aufgabe071(args) {
   const input = args
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-
     if (
       currentElement === "und" ||
       currentElement === "UND" ||
       currentElement === "Und"
     ) {
-      currentElement = true
+      return true
     } else {
-      currentElement = false
+      return false
     }
   }
-  return currentElement
 }
-linkupExerciseHandler("[data-click=aufgabe071]", aufgabe071)
+linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
 
 // Aufgabe 8: E durch 3 ersetzen
 export function aufgabe08(args) {
@@ -238,7 +227,7 @@ export function aufgabe12(input) {
       // erstes e finden
     }
   }
-  return -1
+  return 0
 }
 linkupExerciseHandler("[data-click=aufgabe12]"), aufgabe12
 
@@ -338,7 +327,7 @@ export function aufgabe21(args) {
   // reverse () kehrt die Reihenfolge um
   // join ("") kombiniert die Zeichen wieder
 }
-inkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
+linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
 
 // Aufgabe 22: alle Zeichen bis zu k mit _ erstzen
 export function aufgabe22(args) {
@@ -413,4 +402,25 @@ export function aufgabe241(inputString) {
   )
   // holt das erste Zeichen des Inputs
 }
-linkupExerciseHandler("[data-click=aufgabe24.1]", aufgabe241)
+linkupExerciseHandler("[data-click=aufgabe241]", aufgabe241)
+
+// Aufgabe 29: Alle i durch 1 ersetzen
+export function aufgabe29(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "i" || currentElement === "I") {
+      result.push("1")
+      // result.push ("")um etwas zu ersetzen
+    }
+    // durch 1 ersetzen
+    else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe29]", aufgabe29)
