@@ -387,7 +387,8 @@ linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 export function aufgabe27(args) {
   const input = args
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
+    const currentElement = input.charCodeAt(i)
+    // charCodeAt für den ASCII
     if (currentElement < 48 || currentElement > 57) {
       // ASCII verwenden wegen <>
       return false
@@ -397,3 +398,19 @@ export function aufgabe27(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
+
+export function aufgabe241(inputString) {
+  if (inputString.length <= 1) return inputString
+  // return inputString, wenn die Eingabe weniger als zwei Zeichen lang ist
+  return (
+    inputString[inputString.length - 1] +
+    // findet das letzte Zeichen
+    inputString.slice(1, -1) +
+    // für alle Zeichen ausser den zwei vertauschten
+    // Slice, die bleibenden Zeichen abzutrennen
+    // 1 für das erste Zeichen und -1 um das letzte Zeichen zu entfernen
+    inputString[0]
+  )
+  // holt das erste Zeichen des Inputs
+}
+linkupExerciseHandler("[data-click=aufgabe24.1]", aufgabe241)
