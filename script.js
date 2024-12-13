@@ -147,15 +147,15 @@ export function aufgabe07(args) {
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if (
-      currentElement === "und" ||
-      currentElement === "UND" ||
-      currentElement === "Und"
+      input.substring(i, i + 3) === "und" ||
+      input.substring(i, i + 3) === "UND" ||
+      input.substring(i, i + 3) === "Und"
     ) {
+      // input.substring(i, i + 3) -> 'und', weil mit currentElement nur 1 Buchstabe getestet wird
       return true
-    } else {
-      return false
     }
   }
+  return false
 }
 linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
 
@@ -231,8 +231,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-        // j statt i, weil i das erste e wäre
-      ) {
+      ) // j statt i, weil i das erste e wäre
+      {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -284,6 +284,8 @@ export function aufgabe16(args) {
     if (currentElement === "$") {
       return [input.substring(0, i), input.substring(i + 1)]
       // return input.substring (0, i) + input.substring (i + 1) teilt die Eingabe in zwei Teile ein
+    } else {
+      return notFound
     }
   }
 }
