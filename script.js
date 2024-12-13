@@ -92,6 +92,10 @@ export function aufgabe04(args) {
     const currentElement = input[i]
     if (currentElement === " ") {
       count = count + 1
+      // testen, ob es 2 wörter hat
+    } else if (currentElement === ".") {
+      count = count + 1
+      // testen, ob es 4 Wörter hat
     }
   }
   return count
@@ -125,7 +129,7 @@ export function aufgabe06(args) {
   // '!' -> Nicht
   // /^ -> Anfang
   // $/ -> Ende
-  // teilweise currentElement.match anstatt nur currentElement
+  // teilweise currentElement.match anstatt nur currentElement (ich glaube, das ist, um zu testen, ob es mit einem gewissen Element übereinstimmt)
   // 'test' hinzufügen, oder 'test (input)' -> Keine Ahnung, weshalb, ist halt so.
   // 'test' nach '! /[]/'
   // ';' nach 'true' und 'return'
@@ -133,7 +137,7 @@ export function aufgabe06(args) {
   let hasSpecialCharacter = false
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if (currentElement === !/[a-zA-Z0-9]/.test) {
+    if (!notSpecialCharacter.test(currentElement)) {
       hasSpecialCharacter = true
     }
   }
