@@ -88,23 +88,13 @@ linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 export function aufgabe04(args) {
   const input = args
   let count = 0
-
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-
     if (currentElement === " ") {
       count = count + 1
-    } else {
-      // do nothing
     }
   }
   return count
-}
-linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
-// Aufgabe 4: Wörter zahlen
-export function aufgabe04(args) {
-  const input = args
-  let count = 0
 }
 
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
@@ -232,24 +222,36 @@ export function aufgabe12(input) {
 linkupExerciseHandler("[data-click=aufgabe12]"), aufgabe12
 
 // Aufgabe 13: Position des zweiten "e"
-export function aufgabe13(input) {
-  let count = 0
+export function aufgabe13(args) {
+  const input = args
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if (currentElement === "e" || currentElement === "E") {
-      count++
-      if (count === 2) {
-        return i
+      for (
+        let j = i + 1;
+        j < input.length;
+        j++ // j für i plus 1, weil das erste e schon gefunden wurde
+        // j statt i, weil i das erste e wäre
+      ) {
+        const nextElement = input[j]
+        if (nextElement === "e" || nextElement === "E") {
+          return j + 1
+          // j = nextElement
+        }
       }
     }
+
+    return -1
   }
-  return -1
 }
 linkupExerciseHandler("[data-click=aufgabe13]"), aufgabe13
 
 // Aufgabe 14: Position des letzten "e"
 export function aufgabe14(args) {
   for (let i = input.length - 1; i >= 0; i--) {
+    // -1 iat das letzte Zeichen
+    // i >= 0, um die Schleife weiterzuführen, solange die Eingabe grösser ist als null, oder gleich null
+    // i--, sodass die Eingabe rückwärts  um jeweils 1 verkürzt wird, (bis zum e, das steht aber erst beim currenElement === e etc)
     const currentElement = args[i]
     if (currentElement === "e") {
       return i
@@ -370,6 +372,27 @@ export function aufgabe24(args) {
   return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
+// Aufgabe 25: Mittleres Zeichen bei ungerader Anzahl löschen, wenn gerade Anzahl, beide mittleren Zeichen löschen
+export function aufgabe25(args) {
+  const input = args
+  if (input.length % 2 === 0) {
+    // % 2 === 0 testet, ob der Input gerade ist
+    // % 2 heisst Input durch 2, und 0 wäre dann der Rest, wenn die Anzahl Zeichen gerade ist
+    return (
+      input.substring(0, input.length / 2 - 1) +
+      input.substring(input.length / 2 + 1)
+    )
+    // substring (0, input.length / 2 - 1) löscht das mittlere Zeichen
+    // input.substring (input.length / 2 + 1) löscht das mittlere Zeichen
+  } else {
+    return (
+      input.substring(0, input.length / 2) +
+      input.substring(input.length / 2 + 1)
+    )
+    // substring (0, input.length / 2) löscht die mittleren Zeichen
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
 
 // Aufgabe 27:Testen, ob die Eingabe eine Zahl ist
 
