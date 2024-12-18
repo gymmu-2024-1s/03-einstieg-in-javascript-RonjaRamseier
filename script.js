@@ -198,6 +198,20 @@ export function aufgabe09(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
 
+// Aufgabe 10: Überprüfen, ob die Eingabe ein RGB Hexcode ist
+export function aufgabe10(args) {
+  const input = args
+  const regex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
+  // regex testet, ob es ein RGB Hexcode ist
+  // ^ = Anfang
+  // $ = Ende
+  // # = # als Zeichen
+  // [A-Fa-f0-9] = a bis f und A bis F und 0 bis 9, also RGB Hexcode
+  return regex.test(input)
+}
+linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
+
+// Aufgabe 11: ASCII-Code
 export function aufgabe11(args) {
   const input = args
   if (input.length === 0) {
@@ -235,8 +249,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-        // j statt i, weil i das erste e wäre
-      ) {
+      ) // j statt i, weil i das erste e wäre
+      {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
