@@ -235,8 +235,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-      ) // j statt i, weil i das erste e wäre
-      {
+        // j statt i, weil i das erste e wäre
+      ) {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -358,10 +358,10 @@ export function aufgabe22(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
 
-// Aufgabe 23: Erstes Zeichen vorne und hinten extra nochmals anhängen
+// Aufgabe 23: Erstes Zeichen verdoppeln, und das erste Zeichen am Schluss nochmals anhängen
 export function aufgabe23(args) {
   const input = args
-  return input[0] + input + input[input.length - 1]
+  return input[0] + input + input[input.length - 1] + input[0]
   // input [0] = 1. Zeichen
   // input = alle Zeichen
   // input[input.length - 1] = Letztes Zeichen
