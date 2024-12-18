@@ -235,8 +235,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-      ) // j statt i, weil i das erste e wäre
-      {
+        // j statt i, weil i das erste e wäre
+      ) {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -400,6 +400,25 @@ export function aufgabe25(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
 
+// Aufgabe 26: Erste zwei Zeichen der Eingabe alphanumerisch sortieren
+export function aufgabe26(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (i < 2) {
+      // (i < 2) testet, ob das Zeichen zu den ersten zwei gehört
+      result.push(currentElement)
+    } else {
+    }
+    // else {...} heisst, dass einfach nichts gemacht wird
+  }
+  result.sort()
+  // sort () sortiert die Zeichen alphabetisch
+  return result.join("")
+  // return result join gibt das sortierte Ergebnis zurück
+}
+
 // Aufgabe 27:Testen, ob die Eingabe eine Zahl ist
 
 export function aufgabe27(args) {
@@ -444,7 +463,7 @@ export function aufgabe29(args) {
       result.push("1")
       // result.push ("")um etwas zu ersetzen
     }
-    // durch 1 ersetzen
+    // ersetzt es durch 1
     else {
       result.push(currentElement)
     }
@@ -453,3 +472,23 @@ export function aufgabe29(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe29]", aufgabe29)
+
+// Aufgabe 30: r bzw R zählen
+export function aufgabe30(args) {
+  const input = args
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "r") {
+      count = count + 1
+    } else if (currentElement === "R") {
+      count = count + 1
+    } else {
+      // do nothing
+    }
+  }
+  return count
+}
+linkupExerciseHandler("[data-click=aufgabe30]", aufgabe30)
