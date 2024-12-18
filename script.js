@@ -460,22 +460,6 @@ export function aufgabe27(args) {
 
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
 
-export function aufgabe241(inputString) {
-  if (inputString.length <= 1) return inputString
-  // return inputString, wenn die Eingabe weniger als zwei Zeichen lang ist
-  return (
-    inputString[inputString.length - 1] +
-    // findet das letzte Zeichen
-    inputString.slice(1, -1) +
-    // für alle Zeichen ausser den zwei vertauschten
-    // Slice, die bleibenden Zeichen abzutrennen
-    // 1 für das erste Zeichen und -1 um das letzte Zeichen zu entfernen
-    inputString[0]
-  )
-  // holt das erste Zeichen des Inputs
-}
-linkupExerciseHandler("[data-click=aufgabe241]", aufgabe241)
-
 // Aufgabe 29: Alle i durch 1 ersetzen
 export function aufgabe29(args) {
   const input = args
@@ -516,3 +500,19 @@ export function aufgabe30(args) {
   return count
 }
 linkupExerciseHandler("[data-click=aufgabe30]", aufgabe30)
+
+// Aufgabe 31: Letztes Zeichen verdoppeln und vorne hinzufügen
+export function aufgabe31(args) {
+  const input = args
+  return (
+    input[input.length - 1] +
+    input[0] +
+    input +
+    input[input.length - 1] +
+    input[input.length - 1]
+  )
+  // input [0] = 1. Zeichen
+  // input = alle Zeichen
+  // input[input.length - 1] = Letztes Zeichen
+}
+linkupExerciseHandler("[data-click=aufgabe31]", aufgabe31)
