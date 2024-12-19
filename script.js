@@ -87,20 +87,34 @@ linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 // Aufgabe 4: Wörter zählen
 export function aufgabe04(args) {
   const input = args
-  let count = 0
+  const result = []
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if (currentElement === " ") {
-      count = count + 1
-      // testen, ob es 2 wörter hat
-    } else if (currentElement === ".") {
-      count = count + 1
-      // testen, ob es 4 Wörter hat
+    const ascii = currentElement.charCodeAt(0)
+    if (ascii >= 65 && ascii <= 90) {
+      result.push(currentElement)
+    } else if (ascii >= 97 && ascii <= 122) {
+      result.push(currentElement)
+    } else if (ascii === 32) {
+      result.push(currentElement)
     }
   }
-  return count
+  const result2 = []
+  for (let i = 0; i < result.length; i++) {
+    const currentElement = result[i]
+    const nextElement = result[i + 1]
+    if (currentElement === " " && nextElement === " ") {
+    } else result2.push(currentElement)
+  }
+  let count = 0
+  for (let i = 0; i < result2.length; i++) {
+    const currentElement = result2[i]
+    if (currentElement === " ") {
+      count = count++
+    }
+  }
+  return count + 1
 }
-
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 // Aufgabe 5: Großbuchstaben
@@ -249,8 +263,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-        // j statt i, weil i das erste e wäre
-      ) {
+      ) // j statt i, weil i das erste e wäre
+      {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -308,6 +322,39 @@ export function aufgabe16(args) {
   }
 }
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
+
+// Aufgabe 17: Eingabe wird als Liste eingelesen, die Einträge in der Liste werden durch ein "," getrennt
+export function aufgabe17(args) {
+  const input = args
+  const totallist = []
+  // totallist = leeres Array, das dann die Schlussversion der Eingabe enthält
+  const currentlist = []
+  // currentlist = leeres Array, in dem die aktuelle Eingabe gespeichert wird
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === ",") {
+      totallist.push(currentlist.join(""))
+
+      currentlist.length = 0
+      // currentlist.length = 0 setzt die Liste auf 0 zurück
+    } else {
+      currentlist.push(currentElement)
+    }
+  }
+  totallist.push(currentlist.join(""))
+  return totallist
+}
+linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
+
+// Aufgabe 18: Schreiben Sie folgende Ausgabe: Sie heissen `name` und sind `alter` Jahre alt, wobei `name` und `alter` durch Eingaben eingesetzt werden.
+export function aufgabe18(args) {
+  const input = args
+  const nameAnsage = aufgabe17(input)
+  const result = []
+  return result.join
+}
+linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
 
 // Aufgabe 19: Zeichen verdoppeln
 export function aufgabe19(args) {
@@ -459,6 +506,8 @@ export function aufgabe27(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
+
+// Eigene Aufgaben:
 
 // Aufgabe 29: Alle i durch 1 ersetzen
 export function aufgabe29(args) {
