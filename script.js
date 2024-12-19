@@ -249,8 +249,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-      ) // j statt i, weil i das erste e wäre
-      {
+        // j statt i, weil i das erste e wäre
+      ) {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -506,7 +506,6 @@ export function aufgabe31(args) {
   const input = args
   return (
     input[input.length - 1] +
-    input[0] +
     input +
     input[input.length - 1] +
     input[input.length - 1]
