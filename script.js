@@ -272,8 +272,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-      ) // j statt i, weil i das erste e wäre
-      {
+        // j statt i, weil i das erste e wäre
+      ) {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -324,10 +324,11 @@ export function aufgabe16(args) {
     if (currentElement === "$") {
       return [input.substring(0, i), input.substring(i + 1)]
       // return input.substring (0, i) + input.substring (i + 1) teilt die Eingabe in zwei Teile ein
-    } else {
-      return notFound
+      // 0 = Anfang der Eingabe
+      // i + 1 = erstes $
     }
   }
+  return notFound
 }
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
