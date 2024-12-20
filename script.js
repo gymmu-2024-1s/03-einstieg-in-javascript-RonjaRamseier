@@ -258,7 +258,7 @@ export function aufgabe12(input) {
       // erstes e finden
     }
   }
-  return 0
+  return -1
 }
 linkupExerciseHandler("[data-click=aufgabe12]"), aufgabe12
 
@@ -272,8 +272,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-        // j statt i, weil i das erste e wäre
-      ) {
+      ) // j statt i, weil i das erste e wäre
+      {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -281,15 +281,14 @@ export function aufgabe13(args) {
         }
       }
     }
-
-    return -1
   }
+  return -1
 }
 linkupExerciseHandler("[data-click=aufgabe13]"), aufgabe13
 
 // Aufgabe 14: Position des letzten "e"
 export function aufgabe14(args) {
-  for (let i = input.length - 1; i >= 0; i--) {
+  for (let i = args.length - 1; i >= 0; i--) {
     // -1 iat das letzte Zeichen
     // i >= 0, um die Schleife weiterzuführen, solange die Eingabe grösser ist als null, oder gleich null
     // i--, sodass die Eingabe rückwärts  um jeweils 1 verkürzt wird, (bis zum e, das steht aber erst beim currenElement === e etc)
