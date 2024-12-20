@@ -272,8 +272,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-        // j statt i, weil i das erste e wäre
-      ) {
+      ) // j statt i, weil i das erste e wäre
+      {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -476,8 +476,8 @@ export function aufgabe25(args) {
     // % 2 === 0 testet, ob der Input gerade ist
     // % 2 heisst Input durch 2, und 0 wäre dann der Rest, wenn die Anzahl Zeichen gerade ist
     return (
-      input.substring(0, input.length / 2 - 1) +
-      input.substring(input.length / 2 + 1)
+      input.substring(0, input.length / 2) +
+      input.substring(input.length / 2 + 2)
     )
     // substring (0, input.length / 2 - 1) löscht das mittlere Zeichen
     // input.substring (input.length / 2 + 1) löscht das mittlere Zeichen
