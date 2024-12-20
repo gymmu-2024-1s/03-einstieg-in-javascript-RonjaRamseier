@@ -263,8 +263,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-        // j statt i, weil i das erste e wäre
-      ) {
+      ) // j statt i, weil i das erste e wäre
+      {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -340,10 +340,13 @@ export function aufgabe17(args) {
       // currentlist.length = 0 setzt die Liste auf 0 zurück
     } else {
       currentlist.push(currentElement)
+      // Wenn das aktuelle Zeichen nicht ein Komma ist, wird es zur currrentlist hinzugefügt
     }
   }
   totallist.push(currentlist.join(""))
+  // Wenn die Schleife fertig ist, wird curretlist zu totallist hinzugefügt
   return totallist
+  // totallist wird als Resultat zurückgegeben
 }
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 
@@ -351,8 +354,16 @@ linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 export function aufgabe18(args) {
   const input = args
   const nameAnsage = aufgabe17(input)
+  // NameAnsage soll sich auf Aufgabe 17 beziehen
   const result = []
-  return result.join
+  result.push("Sie heissen ")
+  // result.push ("") um etwas zu hinzufügen
+  result.push(nameAnsage[0])
+  result.push(" und sind ")
+  result.push(nameAnsage[1])
+  result.push(" Jahre alt")
+
+  return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
 
