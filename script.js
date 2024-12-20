@@ -88,22 +88,30 @@ linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 export function aufgabe04(args) {
   const input = args
   const result = []
+  // const result = leeres Array
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     const ascii = currentElement.charCodeAt(0)
+    // findet den ASCII
     if (ascii >= 65 && ascii <= 90) {
+      // sucht nach gewissen Zeichen je nach Position im ascii, hier nur Grossbuchstaben
       result.push(currentElement)
     } else if (ascii >= 97 && ascii <= 122) {
+      // sucht nach gewissen Zeichen je nach Position im ascii, hier nach Kleinbuchstaben
+
       result.push(currentElement)
     } else if (ascii === 32) {
       result.push(currentElement)
+      // sucht nach gewissen Zeichen je nach Position im ascii, hier Leerzeichen
     }
   }
   const result2 = []
+  // erstellet ein neues Array
   for (let i = 0; i < result.length; i++) {
     const currentElement = result[i]
     const nextElement = result[i + 1]
     if (currentElement === " " && nextElement === " ") {
+      // überprüft, ob sowohl das currentElement als auch das nextElement Leerzeichen sind
     } else result2.push(currentElement)
   }
   let count = 0
@@ -111,6 +119,7 @@ export function aufgabe04(args) {
     const currentElement = result2[i]
     if (currentElement === " ") {
       count = count++
+      // zählt die Leerzeichen
     }
   }
   return count + 1
@@ -263,8 +272,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-      ) // j statt i, weil i das erste e wäre
-      {
+        // j statt i, weil i das erste e wäre
+      ) {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
