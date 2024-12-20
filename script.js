@@ -263,8 +263,8 @@ export function aufgabe13(args) {
         let j = i + 1;
         j < input.length;
         j++ // j für i plus 1, weil das erste e schon gefunden wurde
-      ) // j statt i, weil i das erste e wäre
-      {
+        // j statt i, weil i das erste e wäre
+      ) {
         const nextElement = input[j]
         if (nextElement === "e" || nextElement === "E") {
           return j + 1
@@ -506,6 +506,22 @@ export function aufgabe27(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
+
+// Aufgabe 28: Test, ob in der Eingabe 2 Zahlen von einem Leerzeichen getrennt sind.Falls jadie Summe als Ausgabe ausgeben; sonst Fehlermeldung.
+export function aufgabe28(args) {
+  const input = args
+  const numbers = input.split(" ")
+  // split (" ") trennt die Zeichen durch ein Leerzeichen
+  if (numbers.length !== 2) {
+    return "Fehlermeldung"
+    // !==2 testet, ob es nicht zwei Zahlen sind
+    // return "Fehlermeldung"sorgt dafür, dass es eine Fehlermeldung gibt, wenn es nicht zwei Zahlen sind
+  } else {
+    return Number(numbers[0]) + Number(numbers[1])
+    // Number () wandelt die Zeichen in Zahlen um und addiert sie
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
 
 // Eigene Aufgaben:
 
